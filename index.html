@@ -2,41 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condor Publishing Press, LLC</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #000; color: white; padding: 20px; text-align: center; }
-        style>
-    .hero { 
-        background: url('seven wonder of the world.png') center/contain no-repeat; 
-        background-color: #f4f4f4; /* Adds a nice background color if the image is small */
-        height: 400px; /* Reduced from 60vh to a fixed height so it's not so huge */
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        color: white; 
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
-    }
-</style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; }
+        
+        /* Fixed Logo/Header */
+        header { background: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* The Seven Wonders Section */
+        .hero { 
+            background: url('seven wonder of the world.png') center/contain no-repeat; 
+            background-color: #f4f4f4; 
+            height: 400px; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+        }
+
+        /* Founder Photo Fix */
+        .founder-photo { width: 250px; height: auto; border-radius: 10px; margin: 20px 0; }
+    </style>
 </head>
 <body>
 
 <header>
-    <img src="Condor-Publishing-Press-Logo (1).png" alt="Logo" width="100">
-    <h1>Condor Publishing Press, LLC</h1>
+    <img src="Condor-Publishing-Press-Logo (1).png" alt="Condor Logo" style="width: 150px;">
+    <nav><a href="mailto:condorpublishingpress@gmail.com" style="color:white; text-decoration:none;">Contact Us</a></nav>
 </header>
 
 <section class="hero">
-    <h2 style="background: rgba(0,0,0,0.5); padding: 20px;">Global Publishing for a Modern World</h2>
+    <h1 style="font-size: 3rem; margin: 0;">Condor Publishing Press</h1>
+    <p style="font-size: 1.2rem;">Soaring Above Excellence</p>
 </section>
-
-<div class="container">
-    <h2>Meet Our Founder</h2>
-    <img src="Maria no background.png" alt="Maria" class="profile-img">
-    <p>Welcome to our catalog of books and miscellaneous goods.</p>
-</div>
-
-</body>
 
 <section id="catalog" style="padding: 60px 20px; max-width: 1200px; margin: auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <h2 style="text-align: center; color: #1a1a1a; letter-spacing: 2px; text-transform: uppercase;">Our Publications</h2>
@@ -88,5 +89,6 @@
 
     </div>
 </section>
+
 
 
