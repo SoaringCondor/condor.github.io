@@ -4,138 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condor Publishing Press, LLC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; }
         
-        /* HEADER & NAVIGATION */
+        /* HEADER NAVIGATION - Centered and grouped near logo */
         header { 
-            background: #1a1a1a; padding: 15px 50px; display: flex; 
-            justify-content: space-between; align-items: center; 
+            background: #1a1a1a; padding: 15px 30px; display: flex; 
+            justify-content: flex-start; align-items: center; 
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: color 0.3s; }
+        .nav-links { display: flex; align-items: center; margin-left: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; margin-left: 15px; font-size: 0.8em; transition: 0.3s; text-transform: uppercase; white-space: nowrap; }
         .nav-links a:hover { color: #d4af37; }
         
-        .header-right { display: flex; align-items: center; gap: 20px; }
-        .search-bar { padding: 8px 15px; border-radius: 20px; border: none; font-size: 0.85em; width: 140px; }
+        .social-nav { margin-left: 15px; display: flex; gap: 12px; border-left: 1px solid #444; border-right: 1px solid #444; padding: 0 15px; }
+        .social-nav a { margin-left: 0; color: #d4af37; font-size: 1em; }
 
-        /* SECTIONS */
+        /* HERO SECTION */
+        #home {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('seven wonder of the world.png') no-repeat center 20%;
+            background-size: cover;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+        }
+
         section { padding: 80px 20px; text-align: center; }
         .divider { width: 60px; height: 3px; background: #d4af37; margin: 0 auto 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
+        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
 
-        /* EDITABLE MODE STYLE */
-        .editable:focus { outline: 2px dashed #d4af37; background: #fffdf0; border-radius: 4px; padding: 2px; }
-        .admin-bar { background: #d4af37; padding: 10px; text-align: center; color: #1a1a1a; font-weight: bold; }
+        .blog-full-content { display: none; }
+        .read-more-check { display: none; }
+        .read-more-check:checked ~ .blog-full-content { display: block; }
+        .read-more-check:checked ~ .read-more-label { display: none; }
         
-        /* BUTTONS */
-        .btn { text-decoration: none; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block; text-align: center; }
-        .btn-paypal { background: #113984; color: white; }
+        .blog-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #d4af37; color: #1a1a1a; text-decoration: none; font-weight: bold; font-size: 0.85em; text-transform: uppercase; cursor: pointer; border-radius: 4px; border: none; }
+        .btn-secondary { background: #eee; color: #666; margin-top: 25px; }
+
+        .editable:focus { outline: 2px dashed #d4af37; background: #fffdf0; padding: 5px; border-radius: 4px; }
+        .admin-bar { background: #d4af37; padding: 10px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 2000; }
         
-        .price-box { font-weight: bold; font-size: 1.2em; margin-bottom: 2px; }
-        .fee-label { font-size: 0.85em; color: #666; margin: 0 0 15px 0; line-height: 1.2; }
-
-        #backToTop { position: fixed; bottom: 20px; right: 20px; background: #d4af37; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; display: none; z-index: 1000; }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .header { padding: 15px 20px; } }
+        .btn-paypal { background: #113984; color: white; text-decoration: none; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: auto; }
+        .fee-label { font-size: 0.85em; color: #666; margin: 0 0 15px 0; }
     </style>
 </head>
 <body>
 
     <div class="admin-bar">
         <span>EDIT MODE: </span>
-        <button onclick="toggleEdit()" id="editBtn">Enable Text Editing</button>
+        <button onclick="toggleEdit()" id="editBtn" style="cursor:pointer; padding: 5px 15px;">Enable Text Editing</button>
     </div>
 
     <header>
-        <a href="#"><img src="Condor-Publishing-Press-Logo (1).png" alt="Condor Logo" style="width: 100px;"></a>
-        <div class="header-right">
-            <nav class="nav-links">
-                <a href="#catalog">Publications</a>
-                <a href="#services">Services</a>
-                <a href="#blog">Historical Blog</a>
-                <a href="#events">Events</a>
-            </nav>
-            <input type="text" class="search-bar" placeholder="Search...">
-        </div>
+        <img src="Condor-Publishing-Press-Logo (1).png" alt="Logo" style="width: 60px;">
+        <nav class="nav-links">
+            <a href="#catalog">Our Publications</a>
+            <a href="#services">Publishing Services</a>
+            <a href="#events">Upcoming Events</a>
+            
+            <span class="social-nav">
+                <a href="https://www.facebook.com/profile.php?id=61573991343139" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/arribaperu2025" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@arribaperu.perusa" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/A70048Maria" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </span>
+
+            <a href="#blog">Historical Blog</a>
+        </nav>
     </header>
 
-   <section id="home" style="
-    height: 60vh; 
-    position: relative; 
-    background: url('seven wonder of the world.png') no-repeat center center; 
-    background-size: cover; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: white; 
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);"></div>
-    
-    <div style="position: relative; z-index: 2; text-align: center;">
-        <h1 style="font-size: 3rem; margin: 0; letter-spacing: 3px; text-transform: uppercase;">Condor Publishing Press, LLC</h1>
-        <div style="width: 100px; height: 3px; background: #d4af37; margin: 15px auto;"></div>
-        <p style="font-size: 1.2rem; font-style: italic; letter-spacing: 1px;">Bridging History & Professional Publishing</p>
-    </div>
-</section>
+    <section id="home">
+        <div>
+            <h1 style="font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 4px;">Condor Publishing Press, LLC</h1>
+            <div style="width: 120px; height: 4px; background: #d4af37; margin: 20px auto;"></div>
+            <p style="font-size: 1.2rem; font-style: italic;">Bridging History & Professional Publishing</p>
+        </div>
+    </section>
+
+    <section id="founder">
+        <div style="max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left;">
+            <img src="Maria no background.png" alt="Founder Maria" style="width: 250px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 class="editable">Message from the Founder</h2>
+                <div class="divider" style="margin: 0 0 20px 0;"></div>
+                <p class="editable">Welcome to Condor Publishing Press. We bridge the gap between historical investigation and professional publishing. Our mission is to preserve history while helping new authors find their voice.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="catalog" style="background: #f9f9f9;">
         <h2>Our Publications</h2>
         <div class="divider"></div>
         <div class="grid">
-            
             <div class="card">
-                <img src="The Ghost Wanderer .png" alt="The Ghost Wanderer" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">The Ghost Wanderer</h3>
-                <div class="price-box">$12.99</div>
+                <img src="The Ghost Wanderer .png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
+                <h3>The Ghost Wanderer</h3>
+                <p><b>$12.99</b></p>
                 <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" class="btn-paypal">Buy Now</a>
             </div>
-
             <div class="card">
-                <img src="El Proposito de las Lineas de Nasca.png" alt="Nasca Spanish" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">El Propósito de las Líneas de Nasca</h3>
-                <div class="price-box">$12.99</div>
+                <img src="El Proposito de las Lineas de Nasca.png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
+                <h3>Líneas de Nasca</h3>
+                <p><b>$12.99</b></p>
                 <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" class="btn-paypal">Buy Now</a>
             </div>
-
             <div class="card">
-                <img src="The Purpose of the Nasca Lines.png" alt="Nasca English" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">The Purpose of the Nasca Lines</h3>
-                <div class="price-box">$12.99</div>
+                <img src="The Purpose of the Nasca Lines.png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
+                <h3>Nasca Lines</h3>
+                <p><b>$12.99</b></p>
                 <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" class="btn-paypal">Buy Now</a>
             </div>
-
-            <div class="card">
-                <img src="atrevete.png" alt="Atrevete" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">Atrévete a Soñar</h3>
-                <div class="price-box">$10.99</div>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/AENPWEZRLLMKN" target="_blank" class="btn btn-paypal">Buy Now</a>
-            </div>
-
-            <div class="card">
-                <img src="Dare to Dream-A Brighter Future.png" alt="Dare to Dream" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">Dare to Dream</h3>
-                <div class="price-box">$10.99</div>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/82R6BCAYY8KVS" target="_blank" class="btn btn-paypal">Buy Now</a>
-            </div>
-
-            <div class="card">
-                <img src="Machu Picchu and the Nasca Lines.png" alt="Machu Picchu" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3 class="editable">Machu Picchu & Nasca Lines</h3>
-                <div class="price-box">$10.00</div>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
-                <a href="https://www.paypal.com/ncp/payment/U9EVR6DDABCWA" target="_blank" class="btn btn-paypal">Buy Now</a>
-            </div>
-
         </div>
     </section>
 
@@ -143,88 +125,60 @@
         <h2>Publishing Services</h2>
         <div class="divider"></div>
         <div class="grid">
-            
             <div class="card">
-                <h3 class="editable">Formatting</h3>
-                <p class="editable">Professional manuscript layout for print and digital distribution. Industry-standard compliance.</p>
-                <div class="price-box">$150.00</div>
-                <p class="fee-label">+ State Sales Tax</p>
-                <a href="#" class="btn btn-paypal">Order Service</a>
+                <h3>Editing & Proofreading</h3>
+                <p class="editable">Ensuring your manuscript meets professional standards while maintaining your unique voice.</p>
             </div>
-
             <div class="card">
-                <h3 class="editable">Cover Design</h3>
-                <p class="editable">Custom, high-impact imagery and professional typography to make your book stand out on the shelves.</p>
-                <div class="price-box">$90.00</div>
-                <p class="fee-label">+ State Sales Tax</p>
-                <a href="#" class="btn btn-paypal">Order Service</a>
+                <h3>Design & Formatting</h3>
+                <p class="editable">Custom cover designs and interior formatting for print and digital publication.</p>
             </div>
-
-            <div class="card">
-                <h3 class="editable">Web Page</h3>
-                <p class="editable">A professional author or book landing page designed for conversion and mobile responsiveness.</p>
-                <div class="price-box">$85.00</div>
-                <p class="fee-label">+ State Sales Tax</p>
-                <a href="#" class="btn btn-paypal">Order Service</a>
-            </div>
-
-            <div class="card">
-                <h3 class="editable">Print on Demand</h3>
-                <p class="editable">Global distribution setup for major platforms, ensuring high-quality printing with no inventory.</p>
-                <div class="price-box">$50.00</div>
-                <p class="fee-label">+ State Sales Tax</p>
-                <a href="#" class="btn btn-paypal">Order Service</a>
-            </div>
-
         </div>
     </section>
 
-   <section id="blog" style="background: #fdfcf0; padding: 80px 20px;">
-        <h2 class="editable">Historical Blog</h2>
-        <div class="divider"></div>
-
-        <div style="max-width: 800px; margin: 0 auto 60px; display: flex; flex-wrap: wrap; align-items: center; gap: 30px; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left;">
-            <img src="Maria no background.png" alt="Maria" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #d4af37;">
-            <div style="flex: 1; min-width: 250px;">
-                <h3 class="editable" style="margin-top: 0;">A Note from the Author</h3>
-                <p class="editable" style="font-style: italic; color: #555;">
-                    "My name is Maria, and my passion for history has led me to explore the world’s most ancient mysteries. From the lines of Nasca to the heights of Machu Picchu, this blog is where I share my personal adventures and the hidden truths I've uncovered."
-                </p>
-            </div>
-        </div>
-
-        <article style="max-width: 800px; margin: auto; text-align: left; background: white; padding: 40px; border-radius: 8px; border-left: 5px solid #d4af37;">
-            <span style="color: #d4af37; font-weight: bold; text-transform: uppercase; font-size: 0.8em;">February 2026</span>
-            <h3 class="editable" style="font-size: 1.8em; margin: 10px 0;">My First Adventure: Uncovering the Mysteries</h3>
-            <p class="editable" style="font-size: 1.1em; line-height: 1.8; color: #444;">
-                Click here to start writing your first adventure! You can share your insights on the Seven Wonders or your journey in founding Condor Publishing Press. This text is fully editable when you click the "Enable Text Editing" button at the top of the page.
-            </p>
-        </article> <div style="max-width: 800px; margin: 50px auto 0; background: #1a1a1a; color: white; padding: 40px; border-radius: 12px; text-align: center;">
-            <h3 style="color: #d4af37; text-transform: uppercase; letter-spacing: 1px;">Join the Journey</h3>
-            <p style="margin-bottom: 25px; opacity: 0.9;">Subscribe to receive Maria's latest historical insights and publishing updates.</p>
-            
-            <form action="mailto:condorpublishingpress@gmail.com" method="post" enctype="text/plain" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-                <input type="email" name="Email" placeholder="Enter your email address" required style="padding: 12px 20px; border-radius: 4px; border: none; min-width: 280px; font-size: 1rem;">
-                <button type="submit" style="background: #d4af37; color: #1a1a1a; padding: 12px 30px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
-                    SUBSCRIBE
-                </button>
-            </form>
-        </div>
-
-    </section>
-
-    <section id="events">
+    <section id="events" style="background: #f9f9f9;">
         <h2>Upcoming Events</h2>
         <div class="divider"></div>
-        <p>Stay tuned for book signings and virtual readings.</p>
+        <div class="grid">
+            <div class="card" style="border-left: 5px solid #d4af37;">
+                <h3 class="editable">Book Signing & Presentation</h3>
+                <p class="editable"><b>Date:</b> Coming Soon</p>
+                <p class="editable">Join us for an exclusive talk on the mysteries of ancient monuments.</p>
+            </div>
+        </div>
     </section>
 
-    <footer style="background: #1a1a1a; color: white; padding: 50px 20px; text-align: center;">
-        <p>&copy; 2026 Condor Publishing Press, LLC. All Rights Reserved.</p>
-        <p style="font-size: 0.8em; color: #888; margin-top: 10px;">Contact: condorpublishingpress@gmail.com | 425-286-4366</p>
-    </footer>
+    <section id="blog" style="background: #fdfcf0;">
+        <h2>Historical Blog</h2>
+        <div class="divider"></div>
+        <div style="max-width: 800px; margin: 0 auto 50px; display: flex; align-items: center; gap: 30px; background: white; padding: 30px; border-radius: 12px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+            <img src="Maria no background.png" alt="Maria" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
+            <div>
+                <h3 class="editable">A Note from the Author</h3>
+                <p class="editable">My name is Maria... (Click Enable Edit to update your bio!)</p>
+            </div>
+        </div>
+        <article style="max-width: 800px; margin: auto; text-align: left; background: white; padding: 40px; border-radius: 8px; border-left: 5px solid #d4af37; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+            <h3 class="editable">My First Adventure: Uncovering the Mysteries</h3>
+            <p class="editable" style="font-size: 1.1em;">The sun was beginning to set over the Nasca plains when I first realized that the lines weren't just art—they were a message.</p>
+            <input type="checkbox" id="readMoreToggle" class="read-more-check">
+            <div class="blog-full-content">
+                <p class="editable" style="font-size: 1.1em;">(Write your story here!)</p>
+                <label for="readMoreToggle" class="blog-btn btn-secondary">← Back to Blog List</label>
+            </div>
+            <label for="readMoreToggle" class="blog-btn read-more-label">Read Full Adventure →</label>
+        </article>
+    </section>
 
-    <button id="backToTop" onclick="window.scrollTo(0,0)">↑</button>
+    <footer style="background: #1a1a1a; color: white; padding: 40px 20px; text-align: center;">
+        <p>&copy; 2026 Condor Publishing Press, LLC</p>
+        <div style="margin-top: 15px; font-size: 1.5rem;">
+            <a href="https://www.facebook.com/profile.php?id=61573991343139" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/arribaperu2025" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@arribaperu.perusa" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/A70048Maria" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </footer>
 
     <script>
         function toggleEdit() {
@@ -232,21 +186,8 @@
             const btn = document.getElementById('editBtn');
             const isEditing = elements[0].contentEditable === "true";
             elements.forEach(el => { el.contentEditable = !isEditing; });
-            btn.innerText = isEditing ? "Enable Text Editing" : "Finish & Lock Text";
-            btn.style.background = isEditing ? "#d4af37" : "#fff";
+            btn.innerText = isEditing ? "Finish & Lock Text" : "Enable Text Editing";
         }
-
-        window.onscroll = function() {
-            let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-    </script>
-</body>
-</html>
 
 
 
