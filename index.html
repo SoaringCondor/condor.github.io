@@ -38,6 +38,21 @@
             margin: 0; padding:0;
             background: transparent; /* Remove the box */
         }
+
+        .founder-box { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left; background: #fffdf0; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .oval-img { width: 260px; height: 360px; border-radius: 50% / 40%; object-fit: cover; border: 5px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+        section { padding: 60px 20px; text-align: center; }
+        .divider { width: 60px; height: 3px; background: #d4af37; margin: 0 auto 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        
+        .price { color: #333; font-weight: bold; font-size: 1.2em; margin: 10px 0 5px; }
+        .fee-label { font-size: 0.8em; color: #666; margin-bottom: 15px; }
+        .btn-paypal { background: #113984; color: white; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; margin-top: auto; }
+
+        .admin-bar { background: #d4af37; padding: 10px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 2000; }
+        .editable:focus { outline: 2px dashed #d4af37; background: #fffdf0; padding: 5px; }
         
         /* EVENT SPECIFIC STYLE */
         .event-card { border-top: 4px solid #d4af37; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; }
@@ -136,7 +151,7 @@
         <div class="divider"></div>
         <div class="grid">
             <div class="card"><h3>Formatting</h3><p class="editable">Professional interior layout for books.</p><p class="price">Contact for Quote</p></div>
-            <div class="card"><h3>Cover Design</h3><p class="editable">High-resolution custom book covers.</p><p class="price">Starting at $85</p></div>
+            <div class="card"><h3>Cover Design</h3><p class="editable">High-resolution custom book covers.</p><p class="price">Starting at $80</p></div>
             <div class="card"><h3>Web Page Design</h3><p class="editable">Author and promotional webpage.</p><p class="price">Contact for Quote</p></div>
             <div class="card"><h3>Print on Demand</h3><p class="editable">Setup on global distribution platforms.</p><p class="price">Package: $50</p></div>
         </div>
@@ -148,7 +163,7 @@
         <div class="event-card">
             <h3 class="editable">FIRM Foundation EXPO</h3>
             <p class="editable"><strong>Date:</strong> April 16, 17, 18, 2026</p>
-            <p class="editable"><strong>Location:</strong>SLCC - Gail Miller Campus, 9750 S. 300 W. Bldg. 1 & 3, Sandy, UT 84070 </p>
+            <p class="editable"><strong>Location:</strong> SLCC - Gail Miller Campus, 9750 S. 300 W. Bldg. 1 & 3, Sandy, UT 84070</p>
             <p class="editable">Join Maria as she reveals new findings from her recent investigations into ancient history.</p>
         </div>
     </section>
@@ -178,4 +193,3 @@
     </script>
 </body>
 </html>
-
