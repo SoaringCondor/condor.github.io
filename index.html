@@ -5,111 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Condor Publishing Press, LLC</title>
     <style>
-        /* INSTRUCTIONS ONLY IN HERE */
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
-        header { background: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .hero { 
-            background: url('seven wonder of the world.png') center/contain no-repeat; 
-            background-color: #f4f4f4; 
-            height: 400px; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        
+        header { 
+            background: #1a1a1a; padding: 15px 50px; display: flex; 
+            justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .founder-photo { width: 250px; height: auto; border-radius: 10px; margin: 20px 0; }
-        section { padding: 50px; text-align: center; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: color 0.3s; }
+        .nav-links a:hover { color: #d4af37; }
+        
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .search-bar { padding: 8px 15px; border-radius: 20px; border: none; font-size: 0.85em; width: 140px; }
+        .social-icons img { width: 22px; height: 22px; filter: invert(1); }
+
+        section { padding: 80px 20px; text-align: center; }
+        .divider { width: 60px; height: 3px; background: #d4af37; margin: 0 auto 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        
+        .btn { text-decoration: none; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block; text-align: center; }
+        .btn-paypal { background: #113984; color: white; }
+        .btn-venmo { background: #008CFF; color: white; }
+
+        #backToTop { position: fixed; bottom: 20px; right: 20px; background: #d4af37; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; display: none; }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .header { padding: 15px 20px; } }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="Condor-Publishing-Press-Logo (1).png" alt="Condor Logo" style="width: 150px;">
-    <nav><a href="mailto:condorpublishingpress@gmail.com" style="color:white; text-decoration:none;">Contact Us</a></nav>
-</header>
+    <header>
+        <a href="#"><img src="Condor-Publishing-Press-Logo (1).png" alt="Condor Logo" style="width: 100px;"></a>
+        <div class="header-right">
+            <nav class="nav-links">
+                <a href="#catalog">Publications</a>
+                <a href="#services">Services</a>
+                <a href="#blog">Historical Blog</a>
+                <a href="#events">Events</a>
+            </nav>
+            <input type="text" class="search-bar" placeholder="Search...">
+            <div class="social-icons" style="display: flex; gap: 10px;">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="IG"></a>
+            </div>
+        </div>
+    </header>
 
-<section class="hero">
-    <h1 style="font-size: 3rem; margin: 0;">Condor Publishing Press</h1>
-    <p style="font-size: 1.2rem;">Soaring Above Excellence</p>
-</section>
+    <section id="home" style="padding: 0;">
+        <img src="Seven Wonders.png" alt="Seven Wonders" style="width: 100%; max-height: 500px; object-fit: cover;">
+    </section>
 
-<section style="background:#f9f9f9;">
-    <h2>About the Founder</h2>
-    <img src="Maria no background.png" alt="Maria" class="founder-photo">
-    <p>Dedicated to excellence in publishing.</p>
-</section>
+    <section id="founder">
+        <div style="max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left;">
+            <img src="Founder.png" alt="Founder" style="width: 300px; border-radius: 8px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2>Message from the Founder</h2>
+                <div class="divider" style="margin: 0 0 20px 0;"></div>
+                <p>Welcome to Condor Publishing Press. We bridge historical truth with modern storytelling, providing professional platforms for voices worldwide.</p>
+            </div>
+        </div>
+    </section>
 
+    <section id="catalog" style="background: #f9f9f9;">
+        <h2>Our Publications</h2>
+        <div class="divider"></div>
+        <div class="grid">
+            <div class="card">
+                <img src="The Ghost Wanderer .png" alt="The Ghost Wanderer" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>The Ghost Wanderer</h3>
+                <p style="font-weight: bold;">$12.99</p>
+                <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+            <div class="card">
+                <img src="El Proposito de las Lineas de Nasca.png" alt="El Propósito de las Líneas de Nasca" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>El Propósito de las Líneas de Nasca</h3>
+                <p style="font-weight: bold;">$12.99</p>
+                <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+            <div class="card">
+                <img src="The Purpose of the Nasca Lines.png" alt="The Purpose of the Nasca Lines" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>The Purpose of the Nasca Lines</h3>
+                <p style="font-weight: bold;">$12.99</p>
+                <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+            <div class="card">
+                <img src="atrevete.png" alt="Atrévete a Soñar" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>Atrévete a Soñar</h3>
+                <p style="font-weight: bold;">$10.99</p>
+                <a href="https://www.paypal.com/ncp/payment/AENPWEZRLLMKN" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+            <div class="card">
+                <img src="Dare to Dream-A Brighter Future.png" alt="Dare to Dream" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>Dare to Dream</h3>
+                <p style="font-weight: bold;">$10.99</p>
+                <a href="https://www.paypal.com/ncp/payment/82R6BCAYY8KVS" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+            <div class="card">
+                <img src="Machu Picchu and the Nasca Lines.png" alt="Machu Picchu" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3>Machu Picchu & Nasca Lines</h3>
+                <p style="font-weight: bold;">$10.00</p>
+                <a href="https://www.paypal.com/ncp/payment/U9EVR6DDABCWA" target="_blank" class="btn btn-paypal">Buy Now</a>
+                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Publishing Services</h2>
+        <div class="divider"></div>
+        <div class="grid">
+            <div class="card"><h3>Formatting</h3><p>$150.00</p></div>
+            <div class="card"><h3>Cover Design</h3><p>$90.00</p></div>
+            <div class="card"><h3>Web Page</h3><p>$85.00</p></div>
+            <div class="card"><h3>Print on Demand</h3><p>$50.00</p></div>
+        </div>
+    </section>
+
+    <footer style="background: #1a1a1a; color: white; padding: 40px; text-align: center;">
+        <p>&copy; 2026 Condor Publishing Press, LLC. All Rights Reserved.</p>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo(0,0)">↑</button>
+
+    <script>
+        window.onscroll = function() {
+            let btn = document.getElementById("backToTop");
+            btn.style.display = document.documentElement.scrollTop > 300 ? "block" : "none";
+        };
+    </script>
 </body>
 </html>
 
-<section id="catalog" style="padding: 50px; text-align: center;">
-    <h2 style="text-transform: uppercase; letter-spacing: 2px;">Our Publications</h2>
-    <div style="width: 60px; height: 3px; background: #d4af37; margin: 10px auto 40px auto;"></div>
-    
-    <div class="catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto;">
-        
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="The Ghost Wanderer .png" alt="The Ghost Wanderer" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>The Ghost Wanderer</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$12.99</p>
-            <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="El Proposito de las Lineas de Nasca.png" alt="El Propósito de las Líneas de Nasca" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>El Propósito de las Líneas de Nasca</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$12.99</p>
-            <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="The Purpose of the Nasca Lines.png" alt="The Purpose of the Nasca Lines" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>The Purpose of the Nasca Lines</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$12.99</p>
-            <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="atrevete.png" alt="Atrévete a Soñar" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>Atrévete a Soñar: un Futuro Brillante</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$10.99</p>
-            <a href="https://www.paypal.com/ncp/payment/AENPWEZRLLMKN" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="Dare to Dream-A Brighter Future.png" alt="Dare to Dream" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>Dare to Dream: A Brighter Future</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$10.99</p>
-            <a href="https://www.paypal.com/ncp/payment/82R6BCAYY8KVS" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-        <div class="book-card" style="background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <img src="Machu Picchu and the Nasca Lines.png" alt="Machu Picchu" style="width: 100%; height: 320px; object-fit: contain; margin-bottom: 15px;">
-            <h3>Machu Picchu and The Nasca Lines</h3>
-            <p style="font-size: 1.25em; font-weight: bold;">$10.00</p>
-            <a href="https://www.paypal.com/ncp/payment/U9EVR6DDABCWA" target="_blank" style="text-decoration: none; background: #113984; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Buy with Card or PayPal</a>
-            <a href="https://venmo.com/u/condor-publishing" target="_blank" style="text-decoration: none; background: #008CFF; color: white; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block;">Pay with Venmo</a>
-            <div style="font-size: 0.85em; color: #666; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px;">Zelle: 425-286-4366</div>
-        </div>
-
-    </div>
-</section>
-
-<footer style="background: #1a1a1a; color: white; padding: 40px 20px; text-align: center;">
-    <p>&copy; 2026 Condor Publishing Press, LLC. All Rights Reserved.</p>
-    <p style="font-size: 0.9em; color: #aaa; max-width: 600px; margin: 10px auto;">
-        For bulk orders, signed copies, or shipping inquiries, please email us at 
-        <a href="mailto:condorpublishingpress@gmail.com" style="color: #d4af37; text-decoration: none;">condorpublishingpress@gmail.com</a>
-    </p>
-</footer>
 
 
 
