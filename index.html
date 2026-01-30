@@ -24,20 +24,41 @@
         #home {
             height: 60vh;
             background: url('seven wonder of the world.png') no-repeat center center;
-            background-size: contain;
+            background-size: contain;/*Shrinks the full image to fit without cutting*/
             background color: #000;/*Fills empty space with cream*/
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; /*adds a safety gap at the edges*/
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
         /*PURE WHITE TEXT - NO BOX*/
         #home h1 {
-            font-size: 2rem; /* Reduced from 3rem to fit better*/
+            font-size: 2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Stronger shadow to pop against 
-            margin: 0; max-width: 80%; /* Keeps text from touching borders */ Line-height:1.2; padding:0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            margin: 0; padding:0;
             background: transparent; /* Remove the box */
         }
+
+        .founder-box { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left; background: #fffdf0; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .oval-img { width: 260px; height: 360px; border-radius: 50% / 40%; object-fit: cover; border: 5px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+        section { padding: 60px 20px; text-align: center; }
+        .divider { width: 60px; height: 3px; background: #d4af37; margin: 0 auto 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        
+        .price { color: #333; font-weight: bold; font-size: 1.2em; margin: 10px 0 5px; }
+        .fee-label { font-size: 0.8em; color: #666; margin-bottom: 15px; }
+        .btn-paypal { background: #113984; color: white; text-decoration: none; padding: 12px; border-radius: 5px; font-weight: bold; margin-top: auto; }
+
+        .admin-bar { background: #d4af37; padding: 10px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 2000; }
+        .editable:focus { outline: 2px dashed #d4af37; background: #fffdf0; padding: 5px; }
+        
+        /* EVENT SPECIFIC STYLE */
+        .event-card { border-top: 4px solid #d4af37; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; }
+    </style>
+</head>
+<body>
 
     <div class="admin-bar">
         <span>ADMIN EDIT MODE: </span>
@@ -172,8 +193,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
