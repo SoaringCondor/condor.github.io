@@ -20,21 +20,23 @@
         .social-nav { margin-left: 15px; display: flex; gap: 12px; border-left: 1px solid #444; border-right: 1px solid #444; padding: 0 15px; }
         .social-nav a { color: #d4af37; font-size: 1.1em; text-decoration: none; }
 
-        /* HERO - REDUCED HEIGHT & CLEAN WHITE TITLE */
+        /* HERO - SHRINK IMAGE & REMOVE BOX */
         #home {
-            height: 30vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('seven wonder of the world.png') no-repeat center center;
-            background-size: cover;
+            height: 40vh;
+            background: url('seven wonder of the world.png') no-repeat center center;
+            background-size: contain;/*Shrinks the full image to fit without cutting*/
+            background color: #000;/*Fills empty space with cream*/
             display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
+        /*PURE WHITE TEXT - NO BOX*/
         #home h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-            margin: 0;
-            background: none; /* Removed the box */
+            letter-spacing: 4px;
+            color: #white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+            margin: 0; padding:0;
+            background: transparent; /* Remove the box */
         }
 
         .founder-box { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left; background: #fffdf0; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -191,3 +193,4 @@
     </script>
 </body>
 </html>
+
