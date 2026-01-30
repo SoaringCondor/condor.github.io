@@ -24,21 +24,26 @@
         #home {
             height: 40vh;
             background: url('seven wonder of the world.png') no-repeat center center;
-            background-size: contain;/*Shrinks the full image to fit without cutting*/
+            background-size: contain;
             background color: #000;/*Fills empty space with cream*/
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; /*adds a safety gap at the edges*/
         }
         /*PURE WHITE TEXT - NO BOX*/
         #home h1 {
-            font-size: 3rem;
+            font-size: 2rem; /* Reduced from 3rem to fit better*/
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             color: #white;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
-            margin: 0; padding:0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Stronger shadow to pop against 
+            margin: 0; max-width: 80%; /* Keeps text from touching borders */ Line-height:1.2; padding:0;
             background: transparent; /* Remove the box */
         }
+</style>
 
+<section id="home">
+    <h1>Condor Publishing Press, LLC</h1>
+</section>
+    
         .founder-box { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left; background: #fffdf0; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .oval-img { width: 260px; height: 360px; border-radius: 50% / 40%; object-fit: cover; border: 5px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
@@ -193,4 +198,5 @@
     </script>
 </body>
 </html>
+
 
