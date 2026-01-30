@@ -8,20 +8,18 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; }
         
-        /* HEADER NAVIGATION - Centered and grouped near logo */
         header { 
             background: #1a1a1a; padding: 15px 30px; display: flex; 
             justify-content: flex-start; align-items: center; 
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .nav-links { display: flex; align-items: center; margin-left: 20px; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 500; margin-left: 15px; font-size: 0.8em; transition: 0.3s; text-transform: uppercase; white-space: nowrap; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; margin-left: 15px; font-size: 0.75em; transition: 0.3s; text-transform: uppercase; white-space: nowrap; }
         .nav-links a:hover { color: #d4af37; }
         
         .social-nav { margin-left: 15px; display: flex; gap: 12px; border-left: 1px solid #444; border-right: 1px solid #444; padding: 0 15px; }
-        .social-nav a { margin-left: 0; color: #d4af37; font-size: 1em; }
+        .social-nav a { margin-left: 0; color: #d4af37; font-size: 1.1em; text-decoration: none; }
 
-        /* HERO SECTION */
         #home {
             height: 70vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('seven wonder of the world.png') no-repeat center 20%;
@@ -46,7 +44,6 @@
         .admin-bar { background: #d4af37; padding: 10px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 2000; }
         
         .btn-paypal { background: #113984; color: white; text-decoration: none; padding: 12px; border-radius: 4px; font-weight: bold; margin-top: auto; }
-        .fee-label { font-size: 0.85em; color: #666; margin: 0 0 15px 0; }
     </style>
 </head>
 <body>
@@ -64,10 +61,11 @@
             <a href="#events">Upcoming Events</a>
             
             <span class="social-nav">
-                <a href="https://www.facebook.com/profile.php?id=61573991343139" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/arribaperu2025" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@arribaperu.perusa" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://x.com/A70048Maria" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/maria.g.allington/" target="_blank" title="Maria's Personal Facebook"><i class="fas fa-user-circle"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61573991343139" target="_blank" title="Business Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/arribaperu2025" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@arribaperu.perusa" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://x.com/A70048Maria" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
             </span>
 
             <a href="#blog">Historical Blog</a>
@@ -88,7 +86,8 @@
             <div style="flex: 1; min-width: 300px;">
                 <h2 class="editable">Message from the Founder</h2>
                 <div class="divider" style="margin: 0 0 20px 0;"></div>
-                <p class="editable">Welcome to Condor Publishing Press. We bridge the gap between historical investigation and professional publishing. Our mission is to preserve history while helping new authors find their voice.</p>
+                <p class="editable">Welcome to Condor Publishing Press. We bridge the gap between historical investigation and professional publishing. My work is driven by a passion for uncovering the truth of our past.</p>
+                <p>Connect with me on <a href="https://www.facebook.com/maria.g.allington/" style="color: #d4af37; font-weight: bold; text-decoration: none;">Facebook</a>.</p>
             </div>
         </div>
     </section>
@@ -101,21 +100,18 @@
                 <img src="The Ghost Wanderer .png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
                 <h3>The Ghost Wanderer</h3>
                 <p><b>$12.99</b></p>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" class="btn-paypal">Buy Now</a>
             </div>
             <div class="card">
                 <img src="El Proposito de las Lineas de Nasca.png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
                 <h3>Líneas de Nasca</h3>
                 <p><b>$12.99</b></p>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" class="btn-paypal">Buy Now</a>
             </div>
             <div class="card">
                 <img src="The Purpose of the Nasca Lines.png" style="height: 250px; object-fit: contain; margin-bottom: 15px;">
                 <h3>Nasca Lines</h3>
                 <p><b>$12.99</b></p>
-                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" class="btn-paypal">Buy Now</a>
             </div>
         </div>
@@ -125,14 +121,8 @@
         <h2>Publishing Services</h2>
         <div class="divider"></div>
         <div class="grid">
-            <div class="card">
-                <h3>Editing & Proofreading</h3>
-                <p class="editable">Ensuring your manuscript meets professional standards while maintaining your unique voice.</p>
-            </div>
-            <div class="card">
-                <h3>Design & Formatting</h3>
-                <p class="editable">Custom cover designs and interior formatting for print and digital publication.</p>
-            </div>
+            <div class="card"><h3>Editing</h3><p class="editable">Professional manuscript refinement.</p></div>
+            <div class="card"><h3>Design</h3><p class="editable">Interior and cover formatting.</p></div>
         </div>
     </section>
 
@@ -141,9 +131,8 @@
         <div class="divider"></div>
         <div class="grid">
             <div class="card" style="border-left: 5px solid #d4af37;">
-                <h3 class="editable">Book Signing & Presentation</h3>
-                <p class="editable"><b>Date:</b> Coming Soon</p>
-                <p class="editable">Join us for an exclusive talk on the mysteries of ancient monuments.</p>
+                <h3 class="editable">Historical Presentation</h3>
+                <p class="editable"><b>Coming Soon 2026</b></p>
             </div>
         </div>
     </section>
@@ -151,19 +140,12 @@
     <section id="blog" style="background: #fdfcf0;">
         <h2>Historical Blog</h2>
         <div class="divider"></div>
-        <div style="max-width: 800px; margin: 0 auto 50px; display: flex; align-items: center; gap: 30px; background: white; padding: 30px; border-radius: 12px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-            <img src="Maria no background.png" alt="Maria" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
-            <div>
-                <h3 class="editable">A Note from the Author</h3>
-                <p class="editable">My name is Maria... (Click Enable Edit to update your bio!)</p>
-            </div>
-        </div>
         <article style="max-width: 800px; margin: auto; text-align: left; background: white; padding: 40px; border-radius: 8px; border-left: 5px solid #d4af37; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-            <h3 class="editable">My First Adventure: Uncovering the Mysteries</h3>
-            <p class="editable" style="font-size: 1.1em;">The sun was beginning to set over the Nasca plains when I first realized that the lines weren't just art—they were a message.</p>
+            <h3 class="editable">Uncovering Ancient Mysteries</h3>
+            <p class="editable">The sun was setting over the Nasca plains...</p>
             <input type="checkbox" id="readMoreToggle" class="read-more-check">
             <div class="blog-full-content">
-                <p class="editable" style="font-size: 1.1em;">(Write your story here!)</p>
+                <p class="editable">Full story content goes here.</p>
                 <label for="readMoreToggle" class="blog-btn btn-secondary">← Back to Blog List</label>
             </div>
             <label for="readMoreToggle" class="blog-btn read-more-label">Read Full Adventure →</label>
@@ -173,10 +155,11 @@
     <footer style="background: #1a1a1a; color: white; padding: 40px 20px; text-align: center;">
         <p>&copy; 2026 Condor Publishing Press, LLC</p>
         <div style="margin-top: 15px; font-size: 1.5rem;">
-            <a href="https://www.facebook.com/profile.php?id=61573991343139" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/arribaperu2025" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@arribaperu.perusa" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/A70048Maria" style="color: #d4af37; margin: 0 10px;"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/maria.g.allington/" style="color: #d4af37; margin: 0 10px;" title="Personal FB"><i class="fas fa-user-circle"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61573991343139" style="color: #d4af37; margin: 0 10px;" title="Business FB"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/arribaperu2025" style="color: #d4af37; margin: 0 10px;" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@arribaperu.perusa" style="color: #d4af37; margin: 0 10px;" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/A70048Maria" style="color: #d4af37; margin: 0 10px;" title="X"><i class="fab fa-x-twitter"></i></a>
         </div>
     </footer>
 
@@ -188,6 +171,9 @@
             elements.forEach(el => { el.contentEditable = !isEditing; });
             btn.innerText = isEditing ? "Finish & Lock Text" : "Enable Text Editing";
         }
+    </script>
+</body>
+</html>
 
 
 
