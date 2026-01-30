@@ -7,6 +7,7 @@
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; }
         
+        /* HEADER & NAVIGATION */
         header { 
             background: #1a1a1a; padding: 15px 50px; display: flex; 
             justify-content: space-between; align-items: center; 
@@ -18,23 +19,36 @@
         
         .header-right { display: flex; align-items: center; gap: 20px; }
         .search-bar { padding: 8px 15px; border-radius: 20px; border: none; font-size: 0.85em; width: 140px; }
-        .social-icons img { width: 22px; height: 22px; filter: invert(1); }
 
+        /* SECTIONS */
         section { padding: 80px 20px; text-align: center; }
         .divider { width: 60px; height: 3px; background: #d4af37; margin: 0 auto 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+        .card { background: white; border: 1px solid #eee; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+
+        /* EDITABLE MODE STYLE */
+        .editable:focus { outline: 2px dashed #d4af37; background: #fffdf0; border-radius: 4px; padding: 2px; }
+        .admin-bar { background: #d4af37; padding: 10px; text-align: center; color: #1a1a1a; font-weight: bold; }
         
+        /* BUTTONS */
         .btn { text-decoration: none; padding: 12px; border-radius: 4px; font-weight: bold; margin-bottom: 8px; display: block; text-align: center; }
         .btn-paypal { background: #113984; color: white; }
-        .btn-venmo { background: #008CFF; color: white; }
+        
+        .price-box { font-weight: bold; font-size: 1.2em; margin-bottom: 2px; }
+        .fee-label { font-size: 0.85em; color: #666; margin: 0 0 15px 0; line-height: 1.2; }
 
-        #backToTop { position: fixed; bottom: 20px; right: 20px; background: #d4af37; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; display: none; }
+        #backToTop { position: fixed; bottom: 20px; right: 20px; background: #d4af37; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; display: none; z-index: 1000; }
 
         @media (max-width: 768px) { .nav-links { display: none; } .header { padding: 15px 20px; } }
     </style>
 </head>
 <body>
+
+    <div class="admin-bar">
+        <span>EDIT MODE: </span>
+        <button onclick="toggleEdit()" id="editBtn">Enable Text Editing</button>
+    </div>
 
     <header>
         <a href="#"><img src="Condor-Publishing-Press-Logo (1).png" alt="Condor Logo" style="width: 100px;"></a>
@@ -46,24 +60,20 @@
                 <a href="#events">Events</a>
             </nav>
             <input type="text" class="search-bar" placeholder="Search...">
-            <div class="social-icons" style="display: flex; gap: 10px;">
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="IG"></a>
-            </div>
         </div>
     </header>
 
-    <section id="home" style="padding: 0;">
-        <img src="Seven Wonders.png" alt="Seven Wonders" style="width: 100%; max-height: 500px; object-fit: cover;">
+    <section id="home" style="padding: 0; background: #000;">
+        <img src="seven wonder of the world.png" alt="Seven Wonders" style="width: 100%; max-height: 550px; object-fit: cover; display: block;">
     </section>
 
     <section id="founder">
-        <div style="max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left;">
-            <img src="Founder.png" alt="Founder" style="width: 300px; border-radius: 8px;">
+        <div style="max-width: 950px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; text-align: left;">
+            <img src="Maria no background.png" alt="Founder Maria" style="width: 320px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
             <div style="flex: 1; min-width: 300px;">
-                <h2>Message from the Founder</h2>
+                <h2 class="editable">Message from the Founder</h2>
                 <div class="divider" style="margin: 0 0 20px 0;"></div>
-                <p>Welcome to Condor Publishing Press. We bridge historical truth with modern storytelling, providing professional platforms for voices worldwide.</p>
+                <p class="editable">Welcome to Condor Publishing Press. We are dedicated to bridging the gap between historical investigation and professional publishing. Our mission is to provide high-quality, industry-standard services to independent authors while preserving the integrity of historical narratives.</p>
             </div>
         </div>
     </section>
@@ -72,89 +82,138 @@
         <h2>Our Publications</h2>
         <div class="divider"></div>
         <div class="grid">
+            
             <div class="card">
                 <img src="The Ghost Wanderer .png" alt="The Ghost Wanderer" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>The Ghost Wanderer</h3>
-                <p style="font-weight: bold;">$12.99</p>
+                <h3 class="editable">The Ghost Wanderer</h3>
+                <div class="price-box">$12.99</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/E9RBS66NKVBLL" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
             <div class="card">
-                <img src="El Proposito de las Lineas de Nasca.png" alt="El Propósito de las Líneas de Nasca" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>El Propósito de las Líneas de Nasca</h3>
-                <p style="font-weight: bold;">$12.99</p>
+                <img src="El Proposito de las Lineas de Nasca.png" alt="Nasca Spanish" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3 class="editable">El Propósito de las Líneas de Nasca</h3>
+                <div class="price-box">$12.99</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/5VY8CM83UZW7Q" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
             <div class="card">
-                <img src="The Purpose of the Nasca Lines.png" alt="The Purpose of the Nasca Lines" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>The Purpose of the Nasca Lines</h3>
-                <p style="font-weight: bold;">$12.99</p>
+                <img src="The Purpose of the Nasca Lines.png" alt="Nasca English" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3 class="editable">The Purpose of the Nasca Lines</h3>
+                <div class="price-box">$12.99</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/8FL6S3XHBJ74E" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
             <div class="card">
-                <img src="atrevete.png" alt="Atrévete a Soñar" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>Atrévete a Soñar</h3>
-                <p style="font-weight: bold;">$10.99</p>
+                <img src="atrevete.png" alt="Atrevete" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
+                <h3 class="editable">Atrévete a Soñar</h3>
+                <div class="price-box">$10.99</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/AENPWEZRLLMKN" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
             <div class="card">
                 <img src="Dare to Dream-A Brighter Future.png" alt="Dare to Dream" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>Dare to Dream</h3>
-                <p style="font-weight: bold;">$10.99</p>
+                <h3 class="editable">Dare to Dream</h3>
+                <div class="price-box">$10.99</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/82R6BCAYY8KVS" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
             <div class="card">
                 <img src="Machu Picchu and the Nasca Lines.png" alt="Machu Picchu" style="height: 300px; object-fit: contain; margin-bottom: 15px;">
-                <h3>Machu Picchu & Nasca Lines</h3>
-                <p style="font-weight: bold;">$10.00</p>
+                <h3 class="editable">Machu Picchu & Nasca Lines</h3>
+                <div class="price-box">$10.00</div>
+                <p class="fee-label">+$6.00 Shipping & Handling<br>+ State Sales Tax</p>
                 <a href="https://www.paypal.com/ncp/payment/U9EVR6DDABCWA" target="_blank" class="btn btn-paypal">Buy Now</a>
-                <a href="https://venmo.com/u/condor-publishing" target="_blank" class="btn btn-venmo">Venmo</a>
             </div>
+
         </div>
     </section>
 
     <section id="services">
         <h2>Publishing Services</h2>
         <div class="divider"></div>
-        
         <div class="grid">
-            <div class="card">
-                <div class="service-title editable" contenteditable="false">Formatting</div>
-                <div class="service-text editable" contenteditable="false">
-                    We transform your manuscript into a polished, industry-standard layout ready for print and digital distribution. We handle typography and compliance for platforms like Amazon KDP and IngramSpark.
-                </div>
-                <div class="service-price editable" contenteditable="false">$150.00</div>
-            </div>
-
-            <div class="card">
-                <div class="service-title editable" contenteditable="false">Cover Design</div>
-                <div class="service-text editable" contenteditable="false">
-                    Our design process combines custom imagery with high-impact typography to capture the spirit of your story. We provide full-wrap print files and high-resolution digital covers for all marketplaces.
-                </div>
-                <div class="service-price editable" contenteditable="false">$90.00</div>
-            </div>
-
-            <div class="card">
-                <div class="service-title editable" contenteditable="false">Web Page</div>
-                <div class="service-text editable" contenteditable="false">
-                    Establish a professional digital home for your book. We create a custom, mobile-responsive landing page designed to showcase your work, host your author bio, and link directly to your payment options.
-                </div>
-                <div class="service-price editable" contenteditable="false">$85.00</div>
-            </div>
-
-            <div class="card">
-                <div class="service-title editable" contenteditable="false">Print on Demand</div>
-                <div class="service-text editable" contenteditable="false">
-                    Take the guesswork out of global distribution. We handle the technical setup for major POD platforms, ensuring your book is available worldwide without the need for expensive inventory.
-                </div>
-                <div class="service-price editable" contenteditable="false">$50.00</div>
-            </div>
             
-        </div> </section>
+            <div class="card">
+                <h3 class="editable">Formatting</h3>
+                <p class="editable">Professional manuscript layout for print and digital distribution. Industry-standard compliance.</p>
+                <div class="price-box">$150.00</div>
+                <p class="fee-label">+ State Sales Tax</p>
+                <a href="#" class="btn btn-paypal">Order Service</a>
+            </div>
+
+            <div class="card">
+                <h3 class="editable">Cover Design</h3>
+                <p class="editable">Custom, high-impact imagery and professional typography to make your book stand out on the shelves.</p>
+                <div class="price-box">$90.00</div>
+                <p class="fee-label">+ State Sales Tax</p>
+                <a href="#" class="btn btn-paypal">Order Service</a>
+            </div>
+
+            <div class="card">
+                <h3 class="editable">Web Page</h3>
+                <p class="editable">A professional author or book landing page designed for conversion and mobile responsiveness.</p>
+                <div class="price-box">$85.00</div>
+                <p class="fee-label">+ State Sales Tax</p>
+                <a href="#" class="btn btn-paypal">Order Service</a>
+            </div>
+
+            <div class="card">
+                <h3 class="editable">Print on Demand</h3>
+                <p class="editable">Global distribution setup for major platforms, ensuring high-quality printing with no inventory.</p>
+                <div class="price-box">$50.00</div>
+                <p class="fee-label">+ State Sales Tax</p>
+                <a href="#" class="btn btn-paypal">Order Service</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="blog" style="background: #f9f9f9;">
+        <h2>Historical Blog</h2>
+        <div class="divider"></div>
+        <p>New historical insights on ancient mysteries coming soon.</p>
+    </section>
+
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <div class="divider"></div>
+        <p>Stay tuned for book signings and virtual readings.</p>
+    </section>
+
+    <footer style="background: #1a1a1a; color: white; padding: 50px 20px; text-align: center;">
+        <p>&copy; 2026 Condor Publishing Press, LLC. All Rights Reserved.</p>
+        <p style="font-size: 0.8em; color: #888; margin-top: 10px;">Contact: condorpublishingpress@gmail.com | 425-286-4366</p>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo(0,0)">↑</button>
+
+    <script>
+        function toggleEdit() {
+            const elements = document.querySelectorAll('.editable');
+            const btn = document.getElementById('editBtn');
+            const isEditing = elements[0].contentEditable === "true";
+            elements.forEach(el => { el.contentEditable = !isEditing; });
+            btn.innerText = isEditing ? "Enable Text Editing" : "Finish & Lock Text";
+            btn.style.background = isEditing ? "#d4af37" : "#fff";
+        }
+
+        window.onscroll = function() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
 
 
 
